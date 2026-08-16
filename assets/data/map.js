@@ -20,6 +20,14 @@ const REGIONS = [
 ];
 
 const OWNERS = {
+  kan:    { label:"漢（朝廷）", color:"#8E8579" },
+  koukin: { label:"黄巾が蜂起", color:"#C9A227" },
+  tootaku:{ label:"董卓",   color:"#8C2F26" },
+  shokou: { label:"反董卓の諸侯", color:"#8D9B5A" },
+  koson:  { label:"公孫瓚", color:"#7FA8D8" },
+  ryuen:  { label:"劉焉・劉璋", color:"#7A8A93" },
+  ryofu:  { label:"呂布",   color:"#B0413A" },
+  sonsaku:{ label:"孫策",   color:"#3E8E6E" },
   ensho:  { label:"袁紹",   color:"#B08D3F" },
   soso:   { label:"曹操",   color:"#4E79B2" },
   gi:     { label:"魏",     color:"#4E79B2" },
@@ -34,6 +42,31 @@ const OWNERS = {
 };
 
 const MAP_YEARS = [
+  {
+    year: "184年",
+    title: "黄巾の乱",
+    note: "まだ国はひとつ。漢の州がそのまま並んでいます。色のついた州で、黄色い布を巻いた人たちがいっせいに立ち上がりました。反乱は一年でしずまりますが、討伐のために兵を集めた人たちが、そのまま武器を手放しませんでした。",
+    own: { 冀州:"koukin", 青州:"koukin", 兗州:"koukin", 豫州:"koukin", 徐州:"koukin", 荊州:"koukin",
+           幽州:"kan", 并州:"kan", 涼州:"kan", 司隷:"kan", 益州:"kan", 揚州:"kan", 交州:"kan" }
+  },
+  {
+    year: "190年",
+    title: "反董卓連合",
+    note: "董卓が都のある司隷と、地盤の涼州をおさえました。それ以外の州の有力者が連合して立ち向かいます。ただし本気で攻めたのは曹操と孫堅だけで、あとは酒を飲んでいました。",
+    own: { 司隷:"tootaku", 涼州:"tootaku",
+           冀州:"ensho", 幽州:"koson",
+           并州:"shokou", 青州:"shokou", 兗州:"shokou", 豫州:"shokou", 徐州:"shokou", 揚州:"shokou",
+           荊州:"ryuhyo", 益州:"ryuen", 交州:"hoka" }
+  },
+  {
+    year: "197年",
+    title: "群雄割拠",
+    note: "董卓が死に、あとは早い者勝ちになりました。曹操は皇帝を迎えて中央を、袁紹は北を固めます。江東では孫策が駆け上がってきました。徐州の呂布は、この翌年にほろびます。揚州の北には袁術がいて、まもなく自分から皇帝を名乗って自滅します。",
+    own: { 司隷:"soso", 兗州:"soso", 豫州:"soso",
+           冀州:"ensho", 青州:"ensho", 并州:"ensho", 幽州:"koson",
+           徐州:"ryofu", 揚州:"sonsaku",
+           荊州:"ryuhyo", 益州:"ryuen", 涼州:"bato", 交州:"hoka" }
+  },
   {
     year: "200年",
     title: "官渡のころ",

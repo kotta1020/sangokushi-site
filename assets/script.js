@@ -106,10 +106,11 @@
           '<p class="sheet__lead">' + b.lead + "</p>" +
         "</div>" +
       "</div>" +
-      '<div class="stats">' +
-        stat("戦闘力", b.bu) + stat("政治力", b.sei) +
-        '<p class="stats__note">100点満点。50点が、この81人の平均です（女性をのぞいて計算）。</p>' +
-      "</div>" +
+      (b.side === "josei" ? "" :
+        '<div class="stats">' +
+          stat("戦闘力", b.bu) + stat("政治力", b.sei) +
+          '<p class="stats__note">100点満点。50点が、武将61人の平均です。</p>' +
+        "</div>") +
       '<p class="sheet__drama">' + b.drama + "</p>" +
       '<dl class="facts">' +
         "<div><dt>特徴</dt><dd>" + b.toku + "</dd></div>" +
@@ -240,7 +241,9 @@
             '<span class="card__name">' + b.id + "</span>" +
             '<span class="card__yomi">' + b.yomi + "</span>" +
             '<span class="card__lead">' + b.lead + "</span>" +
-            '<span class="card__stats"><i>戦</i>' + b.bu + '<i>政</i>' + b.sei + "</span>" +
+            /* 女性には戦闘力・政治力を出さない */
+            (b.side === "josei" ? "" :
+              '<span class="card__stats"><i>戦</i>' + b.bu + '<i>政</i>' + b.sei + "</span>") +
           "</span>" +
         "</button>";
       }).join("");
