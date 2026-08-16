@@ -48,6 +48,8 @@
       if (r[0] === name) { who = r[2]; lab = KANKEI_TYPE[r[1]].b; }
       else if (r[2] === name) { who = r[0]; lab = KANKEI_TYPE[r[1]].a; }
       if (!who) { return; }
+      /* 夫婦だけは、相手が女性なら「妻」男性なら「夫」に */
+      if (r[1] === "fuufu" && BY_ID[who]) { lab = BY_ID[who].side === "josei" ? "妻" : "夫"; }
       if (!map[who]) { map[who] = { c:KANKEI_TYPE[r[1]].color, labels:[] }; order.push(who); }
       if (map[who].labels.indexOf(lab) < 0) { map[who].labels.push(lab); }
     });

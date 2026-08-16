@@ -85,6 +85,8 @@
       if (r[0] === name) { who = r[2]; lab = KANKEI_TYPE[r[1]].b; }
       else if (r[2] === name) { who = r[0]; lab = KANKEI_TYPE[r[1]].a; }
       else { return; }
+      /* 夫婦だけは、相手が女性なら「妻」男性なら「夫」に */
+      if (r[1] === "fuufu" && BY[who]) { lab = BY[who].side === "josei" ? "妻" : "夫"; }
       if (!map[who]) {
         map[who] = { who:who, type:r[1], labels:[], notes:[] };
         order.push(who);
