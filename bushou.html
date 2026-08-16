@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>武将図鑑 ── 三国志</title>
+<meta name="description" content="魏・蜀・呉・群雄・女性、あわせて80人。三国志の人物を、人間ドラマつきで一覧できる図鑑。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-base="">
+
+<header class="nav">
+  <a class="nav__brand" href="index.html">三<b>国</b>志</a>
+  <nav class="nav__links">
+    <a href="index.html#story">物語</a>
+    <a href="index.html#sides">三つの国</a>
+    <a href="bushou.html" aria-current="page">武将図鑑</a>
+    <a href="kankei.html">人物関係図</a>
+    <a href="kassen.html">動く戦場図</a>
+    <a href="yougo.html">地図と用語</a>
+    <a href="index.html#howto">読み方</a>
+  </nav>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="sec__label">武将図鑑</p>
+    <h1 class="sec__title">八十一人</h1>
+    <p class="sec__lead">
+      カードを押すと、その人の生き方が開きます。
+      「この人のドラマ」だけ拾い読みしても、三国志はだいたい分かるように書きました。
+      戦闘力と政治力は100点満点。50点が、この81人の平均です（女性をのぞいて計算しています）。
+    </p>
+
+    <div class="filters">
+      <button class="chip" data-side="all" aria-pressed="true">すべて</button>
+      <button class="chip" data-side="gi" aria-pressed="false">魏</button>
+      <button class="chip" data-side="shoku" aria-pressed="false">蜀</button>
+      <button class="chip" data-side="go" aria-pressed="false">呉</button>
+      <button class="chip" data-side="gunyu" aria-pressed="false">群雄</button>
+      <button class="chip" data-side="josei" aria-pressed="false">女性</button>
+      <input class="search" id="search" type="search" placeholder="名前・よみで探す" aria-label="名前で探す">
+    </div>
+    <p class="count" id="count"></p>
+
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>
+      肖像画はすべて想像で描いたものです。千八百年前の人たちの顔は、記録には残っていません。
+      雰囲気をつかむための絵だと思ってください。
+    </p>
+    <p>
+      各カードの説明には、小説『三国志演義』だけの逸話がまじっているものがあります。
+      その場合は、開いたパネルの下に断り書きが出ます。
+      <a href="index.html#howto">正史と演義のちがいについて</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/data/bushou.js"></script>
+<script src="assets/data/terms.js"></script>
+<script src="assets/data/kankei.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>

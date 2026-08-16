@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人物関係図 ── 三国志</title>
+<meta name="description" content="誰が誰の主君で、誰と義兄弟で、誰を討ったのか。81人の関係を、たどりながら見られる関係図。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-base="">
+
+<header class="nav">
+  <a class="nav__brand" href="index.html">三<b>国</b>志</a>
+  <nav class="nav__links">
+    <a href="index.html#story">物語</a>
+    <a href="bushou.html">武将図鑑</a>
+    <a href="kankei.html" aria-current="page">人物関係図</a>
+    <a href="kassen.html">動く戦場図</a>
+    <a href="yougo.html">地図と用語</a>
+  </nav>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="sec__label">人物関係図</p>
+    <h1 class="sec__title">誰が、誰の何なのか</h1>
+    <p class="sec__lead">
+      真ん中の人から線が伸びています。線の色が関係の種類、線の上の字がその中身です。
+      <strong>まわりの顔を押すと、その人が真ん中に来ます。</strong>
+      そうやって、人から人へたどっていけます。
+    </p>
+
+    <div class="filters">
+      <button class="chip" data-c="劉備">劉備</button>
+      <button class="chip" data-c="曹操">曹操</button>
+      <button class="chip" data-c="孫権">孫権</button>
+      <button class="chip" data-c="関羽">関羽</button>
+      <button class="chip" data-c="諸葛亮">諸葛亮</button>
+      <button class="chip" data-c="呂布">呂布</button>
+      <button class="chip" data-c="司馬懿">司馬懿</button>
+      <input class="search" id="kk-search" type="search" placeholder="名前で探す" aria-label="名前で探す">
+    </div>
+
+    <div class="kk-legend" id="kk-legend"></div>
+    <div class="figbox" style="overflow-x:auto">
+      <svg id="kk" viewBox="0 0 1000 620" role="img" aria-label="人物関係図" style="min-width:40rem"></svg>
+    </div>
+    <div class="kk-list" id="kk-list"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>
+      関係は、物語（三国志演義）で語られているものを中心にまとめました。
+      「義兄弟」「養子」など、血のつながりのない関係もふくみます。
+    </p>
+    <p><a href="bushou.html">武将図鑑へ</a>　／　<a href="index.html#story">物語にもどる</a></p>
+  </div>
+</footer>
+
+<script src="assets/data/bushou.js"></script>
+<script src="assets/data/terms.js"></script>
+<script src="assets/data/kankei.js"></script>
+<script src="assets/script.js"></script>
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById("kk");
+  var listEl = document.getElementById("kk-list");
+  var BY = {};
+  BUSHOU.forEach(function (b) { BY[b.id] = b; });
+
+  document.getElementById("kk-legend").innerHTML =
+    Object.keys(KANKEI_TYPE).map(function (k) {
+      var t = KANKEI_TYPE[k];
+      return '<span class="kk-legend__item"><i style="background:' + t.color + '"></i>' + t.label + "</span>";
+    }).join("");
+
+  /* 同じ相手との関係が二つ以上あれば、ひとつにまとめる */
+  function relationsOf(name) {
+    var map = {}, order = [];
+    KANKEI.forEach(function (r) {
+      var who, lab;
+      if (r[0] === name) { who = r[2]; lab = KANKEI_TYPE[r[1]].b; }
+      else if (r[2] === name) { who = r[0]; lab = KANKEI_TYPE[r[1]].a; }
+      else { return; }
+      if (!map[who]) {
+        map[who] = { who:who, type:r[1], labels:[], notes:[] };
+        order.push(who);
+      }
+      if (map[who].labels.indexOf(lab) < 0) { map[who].labels.push(lab); }
+      map[who].notes.push(r[3]);
+    });
+    return order.map(function (w) {
+      var o = map[w];
+      o.label = o.labels.join("・");
+      o.note = o.notes.join(" ／ ");
+      return o;
+    });
+  }
+
+  function el(n, a) {
+    var e = document.createElementNS(NS, n);
+    for (var k in a) { e.setAttribute(k, a[k]); }
+    if (n === "text") {
+      e.setAttribute("stroke", "#1A1713");
+      e.setAttribute("stroke-width", "4.5");
+      e.setAttribute("stroke-linejoin", "round");
+      e.setAttribute("paint-order", "stroke fill");
+    }
+    return e;
+  }
+
+  function face(g, b, r) {
+    var cid = "clip-" + b.file + "-" + r;
+    var cp = el("clipPath", { id:cid });
+    cp.appendChild(el("circle", { r:r }));
+    g.appendChild(cp);
+    g.appendChild(el("circle", { r:r + 3, fill:"#221E19",
+      stroke:SIDES[b.side].color, "stroke-width":"2.5" }));
+    var im = el("image", { x:-r, y:-r, width:r * 2, height:r * 2,
+      href:"assets/portraits/" + b.file + ".jpg", "clip-path":"url(#" + cid + ")",
+      preserveAspectRatio:"xMidYMin slice" });
+    im.setAttributeNS("http://www.w3.org/1999/xlink", "href", "assets/portraits/" + b.file + ".jpg");
+    g.appendChild(im);
+  }
+
+  function draw(name) {
+    var b = BY[name];
+    if (!b) { return; }
+    var rel = relationsOf(name);
+    svg.innerHTML = "";
+    svg.appendChild(el("rect", { width:"1000", height:"620", fill:"#1A1713" }));
+
+    var cx = 500, cy = 310;
+    var n = rel.length;
+    var pos = rel.map(function (o, i) {
+      var ang = (-90 + (360 / n) * i) * Math.PI / 180;
+      var rx = (i % 2 ? 408 : 306), ry = (i % 2 ? 252 : 168);
+      return [cx + Math.cos(ang) * rx, cy + Math.sin(ang) * ry];
+    });
+
+    /* 線 */
+    rel.forEach(function (o, i) {
+      var t = KANKEI_TYPE[o.type];
+      var p = pos[i];
+      var dx = p[0] - cx, dy = p[1] - cy, len = Math.hypot(dx, dy);
+      var x1 = cx + dx / len * 62, y1 = cy + dy / len * 62;
+      var x2 = p[0] - dx / len * 42, y2 = p[1] - dy / len * 42;
+      svg.appendChild(el("line", { x1:x1, y1:y1, x2:x2, y2:y2,
+        stroke:t.color, "stroke-width":"2.5", "stroke-opacity":".8" }));
+      /* 文字は線の7割あたり。中央にも顔にもぶつからない位置 */
+      var d2 = Math.max(120, len - 108);
+      var mx = cx + dx / len * d2, my = cy + dy / len * d2;
+      /* 線から少しずらして、線の上に重ならないようにする */
+      mx += -dy / len * 13; my += dx / len * 13;
+      var tx = el("text", { x:mx, y:my + 5, "text-anchor":"middle",
+        "font-size":"15", "font-family":"sans-serif", fill:t.color });
+      tx.textContent = o.label;
+      svg.appendChild(tx);
+    });
+
+    /* まわりの人 */
+    rel.forEach(function (o, i) {
+      var p = pos[i], ob = BY[o.who];
+      var g = el("g", { class:"kk-node", transform:"translate(" + p[0] + "," + p[1] + ")",
+        "data-name":o.who, tabindex:"0", role:"button" });
+      face(g, ob, 30);
+      /* 名前は「中心と反対側」に置く。線の上の関係名とぶつからないように */
+      var ny = (p[1] < cy) ? -44 : 54;
+      var t1 = el("text", { y:ny, "text-anchor":"middle", "font-size":"19",
+        "font-family":"serif", fill:"#EDE7DA" });
+      t1.textContent = o.who;
+      g.appendChild(t1);
+      svg.appendChild(g);
+    });
+
+    /* 真ん中の人 */
+    var c = el("g", { transform:"translate(" + cx + "," + cy + ")" });
+    face(c, b, 52);
+    var ct = el("text", { y:"84", "text-anchor":"middle", "font-size":"27",
+      "font-family":"serif", fill:"#EDE7DA" });
+    ct.textContent = name;
+    c.appendChild(ct);
+    var cs = el("text", { y:"106", "text-anchor":"middle", "font-size":"14",
+      "font-family":"sans-serif", fill:SIDES[b.side].color });
+    cs.textContent = SIDES[b.side].label + "　" + b.yomi;
+    c.appendChild(cs);
+    svg.appendChild(c);
+
+    /* 下の一覧 */
+    listEl.innerHTML =
+      '<p class="kk-list__head"><b>' + name + "</b>の関係　" + n + "件</p>" +
+      rel.map(function (o) {
+        var t = KANKEI_TYPE[o.type];
+        return '<div class="kk-row" style="--c:' + t.color + '">' +
+          '<button class="kk-row__go" data-name="' + o.who + '">' + o.who + "</button>" +
+          '<span class="kk-row__type">' + o.label + "</span>" +
+          '<span class="kk-row__note">' + o.note + "</span>" +
+          '<button class="kk-row__card pchip" data-p="' + o.who + '">カード</button>' +
+        "</div>";
+      }).join("");
+
+    history.replaceState(null, "", "#" + encodeURIComponent(name));
+    Array.prototype.forEach.call(document.querySelectorAll("[data-c]"), function (c2) {
+      c2.setAttribute("aria-pressed", c2.getAttribute("data-c") === name ? "true" : "false");
+    });
+  }
+
+  svg.addEventListener("click", function (e) {
+    var g = e.target.closest(".kk-node");
+    if (g) { draw(g.getAttribute("data-name")); }
+  });
+  svg.addEventListener("keydown", function (e) {
+    var g = e.target.closest(".kk-node");
+    if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); draw(g.getAttribute("data-name")); }
+  });
+  listEl.addEventListener("click", function (e) {
+    var g = e.target.closest(".kk-row__go");
+    if (g) { draw(g.getAttribute("data-name")); }
+  });
+  document.querySelector(".filters").addEventListener("click", function (e) {
+    var c = e.target.closest("[data-c]");
+    if (c) { draw(c.getAttribute("data-c")); }
+  });
+  document.getElementById("kk-search").addEventListener("input", function (e) {
+    var q = e.target.value.trim();
+    if (!q) { return; }
+    var hit = BUSHOU.filter(function (b) { return (b.id + b.yomi).indexOf(q) >= 0; })[0];
+    if (hit) { draw(hit.id); }
+  });
+
+  var want = decodeURIComponent(location.hash.slice(1));
+  draw(BY[want] ? want : "劉備");
+  window.addEventListener("hashchange", function () {
+    var w = decodeURIComponent(location.hash.slice(1));
+    if (BY[w]) { draw(w); }
+  });
+})();
+</script>
+</body>
+</html>

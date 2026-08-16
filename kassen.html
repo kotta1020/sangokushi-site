@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>動く戦場図 ── 三国志</title>
+<meta name="description" content="下邳・官渡・赤壁・合肥・定軍山・樊城・夷陵・街亭・五丈原・陰平越え。十の戦いを、季節と時間帯つきの動く戦場図で一場面ずつ追う。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-base="">
+
+<header class="nav">
+  <a class="nav__brand" href="index.html">三<b>国</b>志</a>
+  <nav class="nav__links">
+    <a href="index.html#story">物語</a>
+    <a href="bushou.html">武将図鑑</a>
+    <a href="kankei.html">人物関係図</a>
+    <a href="kassen.html" aria-current="page">動く戦場図</a>
+    <a href="yougo.html">地図と用語</a>
+  </nav>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="sec__label">動く戦場図</p>
+    <h1 class="sec__title">十の戦いを、一場面ずつ</h1>
+    <p class="sec__lead">
+      どちらの軍がどう動いて、なぜ勝ったのか。
+      「再生」を押すと、部隊が動いて場面が進みます。
+      左上の札で、季節と時間帯がひと目で分かります。
+    </p>
+    <div class="ks-list" id="list"></div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="stage">
+  <div class="wrap">
+    <div class="ks-head" id="head"></div>
+    <div id="player"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>
+      戦場図は、位置関係と動きをつかむための図です。実際の地形や距離とはちがいます。
+      部隊の人数も、記録によって幅があります。
+    </p>
+    <p><a href="index.html#story">物語にもどる</a>　／　<a href="yougo.html">地図と用語へ</a></p>
+  </div>
+</footer>
+
+<script src="assets/data/bushou.js"></script>
+<script src="assets/data/terms.js"></script>
+<script src="assets/data/kankei.js"></script>
+<script src="assets/data/kassen.js"></script>
+<script src="assets/kassen-play.js"></script>
+<script src="assets/script.js"></script>
+<script>
+(function () {
+  var list = document.getElementById("list");
+  var head = document.getElementById("head");
+  var player = document.getElementById("player");
+  var current = null;
+
+  list.innerHTML = KASSEN.map(function (b) {
+    return '<button class="ks-card" data-id="' + b.id + '">' +
+      '<span class="ks-card__year">' + b.year + "　第" + b.chapter + "章</span>" +
+      '<p class="ks-card__name">' + b.name + "</p>" +
+      '<p class="ks-card__place">' + b.place + "　／　" + b.result + "</p>" +
+      '<p class="ks-card__lead">' + b.lead + "</p>" +
+    "</button>";
+  }).join("");
+
+  function open(id, scroll) {
+    var b = KASSEN.filter(function (x) { return x.id === id; })[0];
+    if (!b) { return; }
+    if (current && current.stop) { current.stop(); }
+
+    head.innerHTML =
+      '<div class="ks-head__meta">' +
+        "<span>" + b.year + "</span><span>" + b.place + "</span>" +
+        "<span>" + b.result + "</span>" +
+        '<span><a href="story/' + String(b.chapter).padStart(2, "0") +
+          '.html" style="color:inherit">第' + b.chapter + "章を読む</a></span>" +
+      "</div>" +
+      '<h2 class="sec__title">' + b.name + "</h2>" +
+      '<p class="ks-head__lead">' + b.lead + "</p>" +
+      '<div class="ks-forces">' + b.forces.map(function (f) {
+        return '<div class="ks-force" style="--c:' + ARMY[f.side].color + '">' +
+          '<p class="ks-force__name"><i></i>' + f.label + "</p>" +
+          '<p class="ks-force__num">' + f.num + "</p>" +
+          '<p class="ks-force__people">' + f.people.map(function (p) {
+            return '<button class="pchip" data-p="' + p + '">' + p + "</button>";
+          }).join("") + "</p>" +
+        "</div>";
+      }).join("") + "</div>";
+
+    current = buildKassen(player, b);
+
+    Array.prototype.forEach.call(list.children, function (c) {
+      c.classList.toggle("is-on", c.getAttribute("data-id") === id);
+    });
+    history.replaceState(null, "", "#" + id);
+    if (scroll) { document.getElementById("stage").scrollIntoView({ behavior:"smooth" }); }
+  }
+
+  list.addEventListener("click", function (e) {
+    var c = e.target.closest(".ks-card");
+    if (c) { open(c.getAttribute("data-id"), true); }
+  });
+
+  function fromHash(scroll) {
+    var want = decodeURIComponent(location.hash.slice(1));
+    open(KASSEN.some(function (b) { return b.id === want; }) ? want : KASSEN[0].id, scroll);
+  }
+  /* 別のページから #赤壁 のように指定されて来たときにも開けるように */
+  window.addEventListener("hashchange", function () { fromHash(true); });
+  fromHash(false);
+})();
+</script>
+</body>
+</html>

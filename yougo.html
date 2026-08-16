@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>地図と用語 ── 三国志</title>
+<meta name="description" content="三国志の地図、勢力の移り変わり、官職の一覧、主な一族の家系図。読みながらつまずいたら、ここに戻ってください。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-base="">
+
+<header class="nav">
+  <a class="nav__brand" href="index.html">三<b>国</b>志</a>
+  <nav class="nav__links">
+    <a href="index.html#story">物語</a>
+    <a href="bushou.html">武将図鑑</a>
+    <a href="kankei.html">人物関係図</a>
+    <a href="kassen.html">動く戦場図</a>
+    <a href="yougo.html" aria-current="page">地図と用語</a>
+    <a href="index.html#howto">読み方</a>
+  </nav>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="sec__label">地図と用語</p>
+    <h1 class="sec__title">つまずいたら、ここへ</h1>
+    <p class="sec__lead">
+      「州」「太守」「禅譲」——本文に出てくる言葉のうち、
+      たぶん見慣れないものを全部まとめました。地図と家系図もここにあります。
+      本文の点線の言葉を押すと、その場でも同じ説明が出ます。
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ 地図 ═══════════ -->
+<section class="sec sec--alt">
+  <div class="wrap">
+    <h2 class="sec__title">まず、どこに何があるのか</h2>
+    <p class="sec__lead">
+      正確な地図ではありません。位置関係だけをつかむための、ざっくりした図です。
+      北に平野、真ん中に二本の大きな川、西に山、南に長江。これだけ頭に入れば十分です。
+    </p>
+
+    <div class="figbox">
+      <svg viewBox="0 0 900 560" role="img" aria-label="三国志の主な州と都市のおおまかな位置">
+        <rect width="900" height="560" fill="#1A1713"/>
+
+        <!-- 川 -->
+        <path d="M150,190 C300,140 460,215 600,175 C700,148 780,175 850,165"
+              fill="none" stroke="#4E79B2" stroke-width="7" opacity=".5"/>
+        <path d="M200,395 C320,430 430,375 540,400 C660,428 760,360 855,352"
+              fill="none" stroke="#4E79B2" stroke-width="9" opacity=".5"/>
+        <text x="160" y="176" fill="#7FA8D8" font-size="15" opacity=".9">黄河</text>
+        <text x="212" y="418" fill="#7FA8D8" font-size="15" opacity=".9">長江</text>
+
+        <!-- 州 -->
+        <g font-size="19" fill="#EDE7DA" font-family="serif">
+          <g fill="#221E19" stroke="#4a423a">
+            <rect x="620" y="40"  width="160" height="72" rx="6"/>
+            <rect x="430" y="52"  width="130" height="86" rx="6"/>
+            <rect x="565" y="118" width="140" height="76" rx="6"/>
+            <rect x="712" y="126" width="118" height="70" rx="6"/>
+            <rect x="150" y="52"  width="230" height="96" rx="6"/>
+            <rect x="418" y="158" width="132" height="80" rx="6"/>
+            <rect x="562" y="206" width="120" height="60" rx="6"/>
+            <rect x="694" y="212" width="120" height="72" rx="6"/>
+            <rect x="452" y="254" width="140" height="66" rx="6"/>
+            <rect x="170" y="250" width="200" height="180" rx="6"/>
+            <rect x="392" y="332" width="200" height="128" rx="6"/>
+            <rect x="608" y="300" width="212" height="152" rx="6"/>
+            <rect x="452" y="478" width="200" height="58" rx="6"/>
+          </g>
+          <text x="700" y="82"  text-anchor="middle">幽州</text>
+          <text x="495" y="100" text-anchor="middle">并州</text>
+          <text x="635" y="162" text-anchor="middle">冀州</text>
+          <text x="771" y="168" text-anchor="middle">青州</text>
+          <text x="265" y="106" text-anchor="middle">涼州</text>
+          <text x="484" y="196" text-anchor="middle">司隷</text>
+          <text x="622" y="242" text-anchor="middle">兗州</text>
+          <text x="754" y="254" text-anchor="middle">徐州</text>
+          <text x="522" y="294" text-anchor="middle">豫州</text>
+          <text x="270" y="300" text-anchor="middle">益州</text>
+          <text x="492" y="368" text-anchor="middle">荊州</text>
+          <text x="714" y="336" text-anchor="middle">揚州</text>
+          <text x="552" y="514" text-anchor="middle">交州</text>
+        </g>
+
+        <!-- 補足のふきだし -->
+        <g font-size="13" fill="#9d9284" font-family="sans-serif">
+          <text x="270" y="326" text-anchor="middle">山にかこまれた蜀の本拠地</text>
+          <text x="492" y="392" text-anchor="middle">三国が奪い合った土地</text>
+          <text x="714" y="360" text-anchor="middle">江東。呉の本拠地</text>
+          <text x="265" y="128" text-anchor="middle">馬騰・馬超の西</text>
+        </g>
+
+        <!-- 都市 -->
+        <g font-size="14" font-family="sans-serif">
+          <g fill="#C0392B">
+            <circle cx="452" cy="205" r="5"/><circle cx="530" cy="200" r="5"/>
+            <circle cx="600" cy="152" r="5"/><circle cx="516" cy="285" r="5"/>
+            <circle cx="262" cy="352" r="5"/><circle cx="726" cy="382" r="5"/>
+            <circle cx="470" cy="404" r="5"/><circle cx="654" cy="316" r="5"/>
+          </g>
+          <g fill="#EDE7DA">
+            <text x="452" y="226" text-anchor="middle">長安</text>
+            <text x="537" y="192" text-anchor="start">洛陽</text>
+            <text x="600" y="142" text-anchor="middle">鄴</text>
+            <text x="516" y="306" text-anchor="middle">許昌</text>
+            <text x="262" y="373" text-anchor="middle">成都</text>
+            <text x="726" y="403" text-anchor="middle">建業</text>
+            <text x="470" y="425" text-anchor="middle">江陵</text>
+            <text x="654" y="306" text-anchor="middle">合肥</text>
+          </g>
+        </g>
+
+        <!-- 戦場 -->
+        <g font-size="13" font-family="sans-serif">
+          <g fill="#B08D3F">
+            <path d="M566,232 l6,10 -12,0 z"/>
+            <path d="M540,398 l6,10 -12,0 z"/>
+            <path d="M398,214 l6,10 -12,0 z"/>
+            <path d="M596,430 l6,10 -12,0 z"/>
+          </g>
+          <g fill="#C9A85E">
+            <text x="566" y="228" text-anchor="middle">官渡</text>
+            <text x="540" y="394" text-anchor="middle">赤壁</text>
+            <text x="398" y="210" text-anchor="middle">五丈原</text>
+            <text x="596" y="426" text-anchor="middle">夷陵</text>
+          </g>
+        </g>
+      </svg>
+      <p class="figcap">
+        赤い点が都市、金色の印が大きな戦いのあった場所です。
+        「州」は今でいう県よりずっと広く、日本でいえば地方くらいの大きさだと思ってください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 勢力の移り変わり ═══════════ -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec__title">誰の色が、どう変わったか</h2>
+    <p class="sec__lead">
+      同じ地図を四つ並べました。色が塗り分けられていく様子が、そのまま三国志の流れです。
+    </p>
+    <div id="maps"></div>
+  </div>
+</section>
+
+<!-- ═══════════ 王朝の流れ ═══════════ -->
+<section class="sec sec--alt">
+  <div class="wrap">
+    <h2 class="sec__title">国は、どう入れかわったか</h2>
+    <div class="figbox">
+      <svg viewBox="0 0 900 240" role="img" aria-label="漢から魏・蜀・呉を経て晋へ移る流れ">
+        <rect width="900" height="240" fill="#1A1713"/>
+        <g font-family="serif" font-size="26" fill="#EDE7DA" text-anchor="middle">
+          <rect x="40"  y="90" width="130" height="60" rx="4" fill="#2b241c" stroke="#5b4d3a"/>
+          <text x="105" y="128">漢</text>
+          <rect x="330" y="20"  width="130" height="60" rx="4" fill="#24303f" stroke="#4E79B2"/>
+          <text x="395" y="58">魏</text>
+          <rect x="330" y="90"  width="130" height="60" rx="4" fill="#3a2320" stroke="#C0392B"/>
+          <text x="395" y="128">蜀</text>
+          <rect x="330" y="160" width="130" height="60" rx="4" fill="#1f3029" stroke="#3E8E6E"/>
+          <text x="395" y="198">呉</text>
+          <rect x="700" y="90" width="150" height="60" rx="4" fill="#2b241c" stroke="#B08D3F"/>
+          <text x="775" y="128">晋</text>
+        </g>
+        <g stroke="#6E6A63" stroke-width="2" fill="none">
+          <path d="M170,112 C240,112 260,50 330,50"/>
+          <path d="M170,120 L330,120"/>
+          <path d="M170,128 C240,128 260,190 330,190"/>
+          <path d="M460,50 C560,50 600,120 700,120"/>
+          <path d="M460,190 C560,190 620,120 700,120"/>
+          <path d="M460,120 C520,120 520,60 560,60" stroke-dasharray="4 4"/>
+        </g>
+        <g font-family="sans-serif" font-size="13" fill="#9d9284">
+          <text x="250" y="42" text-anchor="middle">220年 位をゆずる</text>
+          <text x="250" y="112" text-anchor="middle">221年 建国</text>
+          <text x="250" y="212" text-anchor="middle">229年 建国</text>
+          <text x="580" y="98" text-anchor="middle">265年 位をゆずる</text>
+          <text x="600" y="176" text-anchor="middle">280年 滅ぼされる</text>
+          <text x="548" y="52" text-anchor="middle">263年 滅ぼされる</text>
+        </g>
+      </svg>
+      <p class="figcap">
+        漢が魏にゆずり、魏が晋にゆずる。この「ゆずる」は
+        <span class="t" data-t="禅譲">禅譲</span>といって、
+        見た目は平和な儀式ですが、中身は力ずくの乗っ取りです。まったく同じ手が二回くり返されました。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 家系図 ═══════════ -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec__title">家系図</h2>
+    <p class="sec__lead">
+      同じ名字がたくさん出てきて混乱するところだけ、図にしました。
+      名前を押すと、その人のカードが開きます。
+    </p>
+
+    <div class="figbox">
+      <svg viewBox="0 0 900 330" role="img" aria-label="曹操の一族の家系図">
+        <rect width="900" height="330" fill="#1A1713"/>
+        <g stroke="#5b5349" stroke-width="1.5" fill="none">
+          <path d="M120,60 L120,95"/>
+          <path d="M120,150 L120,180 M120,180 L640,180"/>
+          <path d="M250,180 L250,215 M430,180 L430,215 M610,180 L610,215"/>
+          <path d="M250,270 L250,295 M250,295 L390,295 M390,295 L390,272"/>
+          <path d="M120,120 L300,120 M300,120 L300,60" stroke-dasharray="4 4"/>
+          <path d="M300,60 L700,60" stroke-dasharray="4 4"/>
+          <path d="M420,60 L420,30 M560,60 L560,30 M700,60 L700,30" stroke-dasharray="4 4"/>
+          <path d="M300,60 L300,30" stroke-dasharray="4 4"/>
+        </g>
+        <g class="tree" font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
+          <text x="120" y="48" font-size="14" fill="#9d9284">曹嵩（父）</text>
+          <g><rect x="60" y="95" width="120" height="55" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="120" y="129" class="tn" data-p="曹操">曹操</text></g>
+          <g><rect x="196" y="215" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="250" y="249" class="tn" data-p="曹丕">曹丕</text></g>
+          <g><rect x="376" y="215" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="430" y="243" font-size="15">曹植</text>
+             <text x="430" y="262" font-size="11" fill="#9d9284">詩の天才・弟</text></g>
+          <g><rect x="556" y="215" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="610" y="243" font-size="15">曹昂</text>
+             <text x="610" y="262" font-size="11" fill="#9d9284">宛城で戦死・長男</text></g>
+          <text x="320" y="300" font-size="13" fill="#9d9284">曹丕の子が二代皇帝・曹叡</text>
+
+          <text x="300" y="24" font-size="12" fill="#9d9284">一族・親せき</text>
+          <text x="420" y="24" class="tn" font-size="15" data-p="夏侯惇">夏侯惇</text>
+          <text x="560" y="24" class="tn" font-size="15" data-p="夏侯淵">夏侯淵</text>
+          <text x="700" y="24" class="tn" font-size="15" data-p="曹仁">曹仁</text>
+        </g>
+      </svg>
+      <p class="figcap">
+        <b style="color:#B08D3F;font-weight:400">曹家。</b>
+        点線は「親せき」です。夏侯惇と夏侯淵は名字がちがいますが、曹操とは近い血すじ。
+        跡つぎ争いは曹丕と曹植の間で起こり、勝ったのは兄の曹丕でした。
+      </p>
+    </div>
+
+    <div class="figbox">
+      <svg viewBox="0 0 900 300" role="img" aria-label="孫家の家系図">
+        <rect width="900" height="300" fill="#1A1713"/>
+        <g stroke="#5b5349" stroke-width="1.5" fill="none">
+          <path d="M150,95 L280,95"/>
+          <path d="M215,95 L215,140 M215,140 L640,140"/>
+          <path d="M215,140 L215,175 M425,140 L425,175 M640,140 L640,175"/>
+          <path d="M215,230 L215,258 M215,258 L340,258 M340,258 L340,232"/>
+          <path d="M640,230 L640,258 M640,258 L770,258 M770,258 L770,232"/>
+        </g>
+        <g font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
+          <g><rect x="90" y="68" width="120" height="52" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
+             <text x="150" y="100" class="tn" data-p="孫堅">孫堅</text></g>
+          <g><rect x="222" y="68" width="120" height="52" rx="3" fill="#2c2029" stroke="#A46B8C"/>
+             <text x="282" y="100" class="tn" data-p="呉夫人">呉夫人</text></g>
+          <g><rect x="161" y="175" width="108" height="55" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
+             <text x="215" y="209" class="tn" data-p="孫策">孫策</text></g>
+          <g><rect x="371" y="175" width="108" height="55" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
+             <text x="425" y="209" class="tn" data-p="孫権">孫権</text></g>
+          <g><rect x="586" y="175" width="108" height="55" rx="3" fill="#2c2029" stroke="#A46B8C"/>
+             <text x="640" y="209" class="tn" font-size="15" data-p="孫尚香">孫尚香</text></g>
+          <g><rect x="286" y="180" width="108" height="52" rx="3" fill="#2c2029" stroke="#A46B8C" opacity="0"/>
+             <text x="340" y="212" class="tn" font-size="15" data-p="大喬">大喬（妻）</text></g>
+          <text x="770" y="212" class="tn" font-size="15" data-p="劉備">劉備（夫）</text>
+        </g>
+      </svg>
+      <p class="figcap">
+        <b style="color:#B08D3F;font-weight:400">孫家。</b>
+        父・孫堅、長男・孫策、次男・孫権の三代で呉ができました。
+        妹の孫尚香が劉備に嫁いだことで、呉と蜀は一度は親せきになります。
+      </p>
+    </div>
+
+    <div class="figbox">
+      <svg viewBox="0 0 900 290" role="img" aria-label="劉備と義兄弟の関係図">
+        <rect width="900" height="290" fill="#1A1713"/>
+        <g stroke="#5b5349" stroke-width="1.5" fill="none">
+          <path d="M155,120 L155,165"/>
+          <path d="M215,92 L640,92" stroke-dasharray="5 5"/>
+          <path d="M420,92 L420,120 M640,92 L640,120"/>
+          <path d="M640,175 L640,205 M640,205 L760,205 M760,205 L760,178"/>
+        </g>
+        <g font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
+          <g><rect x="95" y="66" width="120" height="52" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="155" y="98" class="tn" data-p="劉備">劉備</text></g>
+          <g><rect x="366" y="120" width="108" height="55" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="420" y="154" class="tn" data-p="張飛">張飛</text></g>
+          <g><rect x="586" y="120" width="108" height="55" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="640" y="154" class="tn" data-p="関羽">関羽</text></g>
+          <g><rect x="101" y="165" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="155" y="199" class="tn" data-p="劉禅">劉禅</text></g>
+          <text x="760" y="158" class="tn" font-size="15" data-p="関平">関平（子）</text>
+          <text x="420" y="238" font-size="13" fill="#9d9284" text-anchor="middle">点線は「義兄弟」。血のつながりはないが、兄弟の約束をした間がら</text>
+        </g>
+      </svg>
+      <p class="figcap">
+        <b style="color:#B08D3F;font-weight:400">劉備と義兄弟。</b>
+        この三人は血縁ではありません。それでも、この時代では血より重い関係として扱われました。
+        劉備の子が二代目皇帝の劉禅、関羽の子が関平です。
+      </p>
+    </div>
+
+    <div class="figbox">
+      <svg viewBox="0 0 900 250" role="img" aria-label="司馬家の家系図">
+        <rect width="900" height="250" fill="#1A1713"/>
+        <g stroke="#5b5349" stroke-width="1.5" fill="none">
+          <path d="M150,120 L150,150 M150,150 L480,150"/>
+          <path d="M310,150 L310,178 M480,150 L480,178"/>
+          <path d="M480,233 L560,233 M560,233 L680,233 M680,233 L680,205"/>
+        </g>
+        <g font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
+          <g><rect x="90" y="68" width="120" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="150" y="100" class="tn" data-p="司馬懿">司馬懿</text></g>
+          <g><rect x="256" y="178" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="310" y="210" class="tn" font-size="15" data-p="司馬師">司馬師</text></g>
+          <g><rect x="426" y="178" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="480" y="210" class="tn" font-size="15" data-p="司馬昭">司馬昭</text></g>
+          <g><rect x="626" y="152" width="108" height="52" rx="3" fill="#2b241c" stroke="#B08D3F"/>
+             <text x="680" y="184" class="tn" font-size="15" data-p="司馬炎">司馬炎</text></g>
+          <text x="790" y="184" font-size="13" fill="#9d9284" text-anchor="start">晋の初代皇帝</text>
+          <text x="150" y="52" font-size="13" fill="#9d9284">魏の家来のはずが……</text>
+        </g>
+      </svg>
+      <p class="figcap">
+        <b style="color:#B08D3F;font-weight:400">司馬家。</b>
+        祖父・父・伯父が三代がかりで魏を乗っ取り、孫の司馬炎が晋を建てました。
+        三国志のいちばん最後に勝つのは、この家です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 官職 ═══════════ -->
+<section class="sec sec--alt">
+  <div class="wrap">
+    <h2 class="sec__title">官職の一覧</h2>
+    <p class="sec__lead">上にあるほど、えらい役職です。</p>
+    <div class="tblwrap"><table class="tbl" id="tbl-yaku"></table></div>
+  </div>
+</section>
+
+<!-- ═══════════ その他の用語 ═══════════ -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec__title">国・場所・しくみ・戦い</h2>
+    <div class="tblwrap"><table class="tbl" id="tbl-other"></table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>
+      地図は位置関係をつかむための図で、実際の形とはちがいます。
+      州の境も、時代によって何度も変わっています。
+    </p>
+    <p><a href="index.html#story">物語にもどる</a>　／　<a href="bushou.html">武将図鑑へ</a></p>
+  </div>
+</footer>
+
+<script src="assets/data/bushou.js"></script>
+<script src="assets/data/terms.js"></script>
+<script src="assets/data/kankei.js"></script>
+<script src="assets/data/map.js"></script>
+<script src="assets/script.js"></script>
+<script>
+/* 用語の表を作る */
+(function () {
+  function rows(list) {
+    return list.map(function (t) {
+      return "<tr><td>" + t.id + "<small>" + t.kana + "</small></td>" +
+             "<td>" + t.short + "</td><td>" + t.body + "</td></tr>";
+    }).join("");
+  }
+  var head = "<tr><th>ことば</th><th>ひとことで</th><th>説明</th></tr>";
+  document.getElementById("tbl-yaku").innerHTML =
+    head + rows(TERMS.filter(function (t) { return t.cat === "役職"; }));
+  document.getElementById("tbl-other").innerHTML =
+    head + rows(TERMS.filter(function (t) { return t.cat !== "役職"; }));
+  drawMaps(document.getElementById("maps"));
+})();
+</script>
+</body>
+</html>
