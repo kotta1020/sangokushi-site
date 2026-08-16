@@ -199,45 +199,57 @@
     <h2 class="sec__title">家系図</h2>
     <p class="sec__lead">
       同じ名字がたくさん出てきて混乱するところだけ、図にしました。
+      <strong>横の一列が「同じ代」です。</strong>一段下がると子、二段下がると孫になります。
       名前を押すと、その人のカードが開きます。
     </p>
 
     <div class="figbox">
-      <svg viewBox="0 0 900 330" role="img" aria-label="曹操の一族の家系図">
-        <rect width="900" height="330" fill="#1A1713"/>
+      <svg viewBox="0 0 900 400" role="img" aria-label="曹操の一族の家系図">
+        <rect width="900" height="400" fill="#1A1713"/>
         <g stroke="#5b5349" stroke-width="1.5" fill="none">
-          <path d="M120,60 L120,95"/>
-          <path d="M120,150 L120,180 M120,180 L640,180"/>
-          <path d="M250,180 L250,215 M430,180 L430,215 M610,180 L610,215"/>
-          <path d="M250,270 L250,290"/>
-          <path d="M180,120 L300,120 M300,120 L300,60" stroke-dasharray="4 4"/>
-          <path d="M300,60 L700,60" stroke-dasharray="4 4"/>
-          <path d="M420,60 L420,30 M560,60 L560,30 M700,60 L700,30" stroke-dasharray="4 4"/>
-          <path d="M300,60 L300,30" stroke-dasharray="4 4"/>
+          <path d="M164,82 L164,110"/>
+          <path d="M164,162 L164,180 M164,180 L464,180"/>
+          <path d="M164,180 L164,200 M314,180 L314,200 M464,180 L464,200"/>
+          <path d="M164,252 L164,290"/>
+          <path d="M218,136 L320,136 M428,136 L470,136 M578,136 L620,136" stroke-dasharray="5 4"/>
         </g>
-        <g class="tree" font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
-          <text x="120" y="48" font-size="14" fill="#9d9284">曹嵩（父）</text>
-          <g><rect x="60" y="95" width="120" height="55" rx="3" fill="#24303f" stroke="#4E79B2"/>
-             <text x="120" y="129" class="tn" data-p="曹操">曹操</text></g>
-          <g><rect x="196" y="215" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
-             <text x="250" y="249" class="tn" data-p="曹丕">曹丕</text></g>
-          <g><rect x="376" y="215" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
-             <text x="430" y="243" font-size="15">曹植</text>
-             <text x="430" y="262" font-size="11" fill="#9d9284">詩の天才・弟</text></g>
-          <g><rect x="556" y="215" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
-             <text x="610" y="243" font-size="15">曹昂</text>
-             <text x="610" y="262" font-size="11" fill="#9d9284">宛城で戦死・長男</text></g>
-          <text x="250" y="310" font-size="13" fill="#9d9284">曹丕の子が二代皇帝・曹叡</text>
+        <g font-family="sans-serif" font-size="12" fill="#6E6A63" text-anchor="start">
+          <text x="20" y="60" text-anchor="start">祖父の代</text>
+          <text x="20" y="140" text-anchor="start">曹操の代</text>
+          <text x="20" y="230" text-anchor="start">子の代</text>
+          <text x="20" y="320" text-anchor="start">孫の代</text>
+        </g>
+        <text x="269" y="128" font-family="sans-serif" font-size="12" fill="#9d9284" text-anchor="middle">親せき</text>
+        <g font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
+          <g><rect x="110" y="30" width="108" height="52" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="164" y="62">曹嵩</text></g>
 
-          <text x="300" y="24" font-size="12" fill="#9d9284">一族・親せき</text>
-          <text x="420" y="24" class="tn" font-size="15" data-p="夏侯惇">夏侯惇</text>
-          <text x="560" y="24" class="tn" font-size="15" data-p="夏侯淵">夏侯淵</text>
-          <text x="700" y="24" class="tn" font-size="15" data-p="曹仁">曹仁</text>
+          <g><rect x="110" y="110" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="164" y="142" class="tn" data-p="曹操">曹操</text></g>
+          <g><rect x="320" y="110" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="374" y="142" class="tn" font-size="15" data-p="夏侯惇">夏侯惇</text></g>
+          <g><rect x="470" y="110" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="524" y="142" class="tn" font-size="15" data-p="夏侯淵">夏侯淵</text></g>
+          <g><rect x="620" y="110" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="674" y="142" class="tn" font-size="15" data-p="曹仁">曹仁</text></g>
+
+          <g><rect x="110" y="200" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="164" y="232" class="tn" data-p="曹丕">曹丕</text></g>
+          <g><rect x="260" y="200" width="108" height="52" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="314" y="226" font-size="15">曹植</text>
+             <text x="314" y="244" font-size="11" fill="#9d9284">詩の天才・弟</text></g>
+          <g><rect x="410" y="200" width="108" height="52" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="464" y="226" font-size="15">曹昂</text>
+             <text x="464" y="244" font-size="11" fill="#9d9284">宛城で戦死・長男</text></g>
+
+          <g><rect x="110" y="290" width="108" height="52" rx="3" fill="#22262c" stroke="#3f4855"/>
+             <text x="164" y="316" font-size="15">曹叡</text>
+             <text x="164" y="334" font-size="11" fill="#9d9284">三代目の皇帝</text></g>
         </g>
       </svg>
       <p class="figcap">
         <b style="color:#B08D3F;font-weight:400">曹家。</b>
-        点線は「親せき」です。夏侯惇と夏侯淵は名字がちがいますが、曹操とは近い血すじ。
+        横の一列が同じ代です。夏侯惇・夏侯淵・曹仁は曹操と同じ代の親せき（点線）。
         跡つぎ争いは曹丕と曹植の間で起こり、勝ったのは兄の曹丕でした。
       </p>
     </div>
@@ -246,89 +258,108 @@
       <svg viewBox="0 0 900 300" role="img" aria-label="孫家の家系図">
         <rect width="900" height="300" fill="#1A1713"/>
         <g stroke="#5b5349" stroke-width="1.5" fill="none">
-          <path d="M210,95 L222,95"/>
-          <path d="M215,95 L215,140 M215,140 L640,140"/>
-          <path d="M215,140 L215,175 M425,140 L425,175 M640,140 L640,175"/>
-          <path d="M215,230 L215,258 M215,258 L318,258 M318,258 L318,232"/>
-          <path d="M640,230 L640,258 M640,258 L770,258 M770,258 L770,232"/>
+          <path d="M218,86 L250,86"/>
+          <path d="M234,86 L234,140 M164,140 L604,140"/>
+          <path d="M164,140 L164,170 M454,140 L454,170 M604,140 L604,170"/>
+          <path d="M218,196 L250,196"/>
+          <path d="M658,196 L690,196"/>
+        </g>
+        <g font-family="sans-serif" font-size="12" fill="#6E6A63" text-anchor="start">
+          <text x="20" y="90" text-anchor="start">親の代</text>
+          <text x="20" y="200" text-anchor="start">子の代</text>
         </g>
         <g font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
-          <g><rect x="90" y="68" width="120" height="52" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
-             <text x="150" y="100" class="tn" data-p="孫堅">孫堅</text></g>
-          <g><rect x="222" y="68" width="120" height="52" rx="3" fill="#2c2029" stroke="#A46B8C"/>
-             <text x="282" y="100" class="tn" data-p="呉夫人">呉夫人</text></g>
-          <g><rect x="161" y="175" width="108" height="55" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
-             <text x="215" y="209" class="tn" data-p="孫策">孫策</text></g>
-          <g><rect x="371" y="175" width="108" height="55" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
-             <text x="425" y="209" class="tn" data-p="孫権">孫権</text></g>
-          <g><rect x="586" y="175" width="108" height="55" rx="3" fill="#2c2029" stroke="#A46B8C"/>
-             <text x="640" y="209" class="tn" font-size="15" data-p="孫尚香">孫尚香</text></g>
-          <g><rect x="264" y="180" width="108" height="52" rx="3" fill="#2c2029" stroke="#A46B8C" opacity="0"/>
-             <text x="318" y="212" class="tn" font-size="15" data-p="大喬">大喬（妻）</text></g>
-          <text x="770" y="212" class="tn" font-size="15" data-p="劉備">劉備（夫）</text>
+          <g><rect x="110" y="60" width="108" height="52" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
+             <text x="164" y="92" class="tn" data-p="孫堅">孫堅</text></g>
+          <g><rect x="250" y="60" width="108" height="52" rx="3" fill="#2c2029" stroke="#A46B8C"/>
+             <text x="304" y="92" class="tn" font-size="15" data-p="呉夫人">呉夫人</text></g>
+
+          <g><rect x="110" y="170" width="108" height="52" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
+             <text x="164" y="202" class="tn" data-p="孫策">孫策</text></g>
+          <g><rect x="250" y="170" width="108" height="52" rx="3" fill="#2c2029" stroke="#A46B8C"/>
+             <text x="304" y="202" class="tn" font-size="15" data-p="大喬">大喬</text></g>
+          <g><rect x="400" y="170" width="108" height="52" rx="3" fill="#1f3029" stroke="#3E8E6E"/>
+             <text x="454" y="202" class="tn" data-p="孫権">孫権</text></g>
+          <g><rect x="550" y="170" width="108" height="52" rx="3" fill="#2c2029" stroke="#A46B8C"/>
+             <text x="604" y="202" class="tn" font-size="15" data-p="孫尚香">孫尚香</text></g>
+          <g><rect x="690" y="170" width="108" height="52" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="744" y="202" class="tn" data-p="劉備">劉備</text></g>
         </g>
       </svg>
       <p class="figcap">
         <b style="color:#B08D3F;font-weight:400">孫家。</b>
         父・孫堅、長男・孫策、次男・孫権の三代で呉ができました。
+        短い横線でつながっているのが夫婦です（孫堅と呉夫人、孫策と大喬、孫尚香と劉備）。
         妹の孫尚香が劉備に嫁いだことで、呉と蜀は一度は親せきになります。
       </p>
     </div>
 
     <div class="figbox">
-      <svg viewBox="0 0 900 290" role="img" aria-label="劉備と義兄弟の関係図">
-        <rect width="900" height="290" fill="#1A1713"/>
+      <svg viewBox="0 0 900 300" role="img" aria-label="劉備と義兄弟の関係図">
+        <rect width="900" height="300" fill="#1A1713"/>
         <g stroke="#5b5349" stroke-width="1.5" fill="none">
-          <path d="M155,120 L155,165"/>
-          <path d="M215,92 L640,92" stroke-dasharray="5 5"/>
-          <path d="M420,92 L420,120 M640,92 L640,120"/>
-          <path d="M640,175 L640,205 M640,205 L760,205 M760,205 L760,178"/>
+          <path d="M218,86 L300,86 M408,86 L490,86" stroke-dasharray="5 4"/>
+          <path d="M164,112 L164,170"/>
+          <path d="M354,112 L354,170"/>
         </g>
+        <g font-family="sans-serif" font-size="12" fill="#6E6A63" text-anchor="start">
+          <text x="20" y="90" text-anchor="start">同じ代</text>
+          <text x="20" y="200" text-anchor="start">子の代</text>
+        </g>
+        <text x="259" y="78" font-family="sans-serif" font-size="12" fill="#9d9284" text-anchor="middle">義兄弟</text>
         <g font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
-          <g><rect x="95" y="66" width="120" height="52" rx="3" fill="#3a2320" stroke="#C0392B"/>
-             <text x="155" y="98" class="tn" data-p="劉備">劉備</text></g>
-          <g><rect x="366" y="120" width="108" height="55" rx="3" fill="#3a2320" stroke="#C0392B"/>
-             <text x="420" y="154" class="tn" data-p="張飛">張飛</text></g>
-          <g><rect x="586" y="120" width="108" height="55" rx="3" fill="#3a2320" stroke="#C0392B"/>
-             <text x="640" y="154" class="tn" data-p="関羽">関羽</text></g>
-          <g><rect x="101" y="165" width="108" height="55" rx="3" fill="#22262c" stroke="#3f4855"/>
-             <text x="155" y="199" class="tn" data-p="劉禅">劉禅</text></g>
-          <text x="760" y="158" class="tn" font-size="15" data-p="関平">関平（子）</text>
-          <text x="420" y="238" font-size="13" fill="#9d9284" text-anchor="middle">点線は「義兄弟」。血のつながりはないが、兄弟の約束をした間がら</text>
+          <g><rect x="110" y="60" width="108" height="52" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="164" y="92" class="tn" data-p="劉備">劉備</text></g>
+          <g><rect x="300" y="60" width="108" height="52" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="354" y="92" class="tn" data-p="関羽">関羽</text></g>
+          <g><rect x="490" y="60" width="108" height="52" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="544" y="92" class="tn" data-p="張飛">張飛</text></g>
+
+          <g><rect x="110" y="170" width="108" height="52" rx="3" fill="#2b241c" stroke="#B08D3F"/>
+             <text x="164" y="202" class="tn" data-p="劉禅">劉禅</text></g>
+          <g><rect x="300" y="170" width="108" height="52" rx="3" fill="#3a2320" stroke="#C0392B"/>
+             <text x="354" y="202" class="tn" data-p="関平">関平</text></g>
         </g>
       </svg>
       <p class="figcap">
         <b style="color:#B08D3F;font-weight:400">劉備と義兄弟。</b>
-        この三人は血縁ではありません。それでも、この時代では血より重い関係として扱われました。
-        劉備の子が二代目皇帝の劉禅、関羽の子が関平です。
+        上の三人は同じ代で、血のつながりはありません（点線が義兄弟）。
+        それでもこの時代では、血より重い関係として扱われました。
+        下の段が子で、劉備の子が二代目皇帝の劉禅、関羽の子が関平です。
       </p>
     </div>
 
     <div class="figbox">
-      <svg viewBox="0 0 900 250" role="img" aria-label="司馬家の家系図">
-        <rect width="900" height="250" fill="#1A1713"/>
+      <svg viewBox="0 0 900 390" role="img" aria-label="司馬家の家系図">
+        <rect width="900" height="390" fill="#1A1713"/>
         <g stroke="#5b5349" stroke-width="1.5" fill="none">
-          <path d="M150,120 L150,150 M150,150 L480,150"/>
-          <path d="M310,150 L310,178 M480,150 L480,178"/>
-          <path d="M480,230 L480,233 M480,233 L680,233 M680,233 L680,204"/>
+          <path d="M164,92 L164,120 M164,120 L334,120"/>
+          <path d="M164,120 L164,150 M334,120 L334,150"/>
+          <path d="M334,202 L334,260"/>
+        </g>
+        <g font-family="sans-serif" font-size="12" fill="#6E6A63" text-anchor="start">
+          <text x="20" y="70" text-anchor="start">一代目</text>
+          <text x="20" y="180" text-anchor="start">二代目</text>
+          <text x="20" y="290" text-anchor="start">三代目</text>
         </g>
         <g font-family="serif" font-size="17" fill="#EDE7DA" text-anchor="middle">
-          <g><rect x="90" y="68" width="120" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
-             <text x="150" y="100" class="tn" data-p="司馬懿">司馬懿</text></g>
-          <g><rect x="256" y="178" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
-             <text x="310" y="210" class="tn" font-size="15" data-p="司馬師">司馬師</text></g>
-          <g><rect x="426" y="178" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
-             <text x="480" y="210" class="tn" font-size="15" data-p="司馬昭">司馬昭</text></g>
-          <g><rect x="626" y="152" width="108" height="52" rx="3" fill="#2b241c" stroke="#B08D3F"/>
-             <text x="680" y="184" class="tn" font-size="15" data-p="司馬炎">司馬炎</text></g>
-          <text x="790" y="184" font-size="13" fill="#9d9284" text-anchor="start">晋の初代皇帝</text>
-          <text x="150" y="52" font-size="13" fill="#9d9284">魏の家来のはずが……</text>
+          <g><rect x="110" y="40" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="164" y="72" class="tn" font-size="15" data-p="司馬懿">司馬懿</text></g>
+
+          <g><rect x="110" y="150" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="164" y="182" class="tn" font-size="15" data-p="司馬師">司馬師</text></g>
+          <g><rect x="280" y="150" width="108" height="52" rx="3" fill="#24303f" stroke="#4E79B2"/>
+             <text x="334" y="182" class="tn" font-size="15" data-p="司馬昭">司馬昭</text></g>
+
+          <g><rect x="280" y="260" width="108" height="52" rx="3" fill="#2b241c" stroke="#B08D3F"/>
+             <text x="334" y="292" class="tn" font-size="15" data-p="司馬炎">司馬炎</text></g>
+          <text x="410" y="292" font-family="sans-serif" font-size="13" fill="#9d9284" text-anchor="start">晋の初代皇帝</text>
         </g>
       </svg>
       <p class="figcap">
         <b style="color:#B08D3F;font-weight:400">司馬家。</b>
-        祖父・父・伯父が三代がかりで魏を乗っ取り、孫の司馬炎が晋を建てました。
-        三国志のいちばん最後に勝つのは、この家です。
+        一代目の司馬懿が魏の実権をにぎり、二代目の兄弟がそれを引きつぎ、
+        三代目の司馬炎が晋を建てました。三国志のいちばん最後に勝つのは、この家です。
       </p>
     </div>
   </div>
