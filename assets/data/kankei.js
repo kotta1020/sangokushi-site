@@ -16,8 +16,10 @@
 const KANKEI_TYPE = {
   shukun:  { color:"#B08D3F", a:"主君",   b:"家来",   label:"主君と家来" },
   gikyodai:{ color:"#C0392B", a:"義兄弟", b:"義兄弟", label:"義兄弟" },
-  oyako:   { color:"#4A9C79", a:"親",     b:"子",     label:"親子" },
+  oyako:   { color:"#4A9C79", a:"父・母", b:"息子・娘", label:"親子" },
   kyodai:  { color:"#3E8E6E", a:"兄・姉", b:"弟・妹", label:"きょうだい" },
+  /* 親子ときょうだいと夫婦は、相手の性別を見て
+     「父／母」「兄／姉」「妻／夫」と出し分けている（表示側で処理） */
   fuufu:   { color:"#A46B8C", a:"夫婦",   b:"夫婦",   label:"夫婦" },
   shinseki:{ color:"#7A8A93", a:"親せき", b:"親せき", label:"親せき" },
   shitei:  { color:"#5B85BE", a:"師",     b:"弟子",   label:"師と弟子" },
